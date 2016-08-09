@@ -1,3 +1,4 @@
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
@@ -9,7 +10,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>My JSP 'JspLife.jsp' starting page</title>
+    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -18,30 +20,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+
   </head>
   
   <body>
-  	Hello World
-    This is my JSP page. 这是 <br>
-    <!-- 我是注释 -->
-    <%-- 我是注释 --%>
-    
-    <%!
-    	String s = "张三";
-    	int add(int x, int y){
-    		return x+y;
-    	}
-     %>
-    
+    <h1>JSP生命周期 </h1>
     <%
-    	//我是主食
-    	out.println("我的爱..."+add(1, 2));
+    	SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+    	String s = sdf.format(new Date());
      %>
-     
-     <br>
-     你好, <%=s %><br>
-     x+y=<%=add(10, 5) %><br>
-     
-     
+     今天是:<%=s %>
   </body>
 </html>
